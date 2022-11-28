@@ -186,7 +186,7 @@ div#category {
 
 ::-webkit-scrollbar {
     width: 10px;
-    height: 5px;
+    height: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
