@@ -64,6 +64,17 @@
     
     
     <entry>
+      <title>友情链接</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title></title>
       <link href="/live2d-widget/README.html"/>
       <url>/live2d-widget/README.html</url>
@@ -152,17 +163,6 @@
     
     
     <entry>
-      <title>友情链接</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title></title>
       <link href="/live2d-widget/demo/demo.html"/>
       <url>/live2d-widget/demo/demo.html</url>
@@ -208,10 +208,10 @@
     
     <entry>
       <title></title>
-      <link href="/live2d-widget/src/waifu-tips.js"/>
-      <url>/live2d-widget/src/waifu-tips.js</url>
+      <link href="/live2d-widget/src/model.js"/>
+      <url>/live2d-widget/src/model.js</url>
       
-        <content type="html"><![CDATA[import initWidget from "./index.js";window.initWidget = initWidget;]]></content>
+        <content type="html"><![CDATA[import showMessage from "./message.js";import randomSelection from "./utils.js";class Model {    constructor(config) {        let { apiPath, cdnPath } = config;        let useCDN = false;        if (typeof cdnPath === "string") {            useCDN = true;            if (!cdnPath.endsWith("/")) cdnPath += "/";        } else if (typeof apiPath === "string") {            if (!apiPath.endsWith("/")) apiPath += "/";        } else {            throw "Invalid initWidget argument!";        }        this.useCDN = useCDN;        this.apiPath = apiPath;        this.cdnPath = cdnPath;    }    async loadModelList() {        const response = await fetch(`${this.cdnPath}model_list.json`);        this.modelList = await response.json();    }    async loadModel(modelId, modelTexturesId, message) {        localStorage.setItem("modelId", modelId);        localStorage.setItem("modelTexturesId", modelTexturesId);        showMessage(message, 4000, 10);        if (this.useCDN) {            if (!this.modelList) await this.loadModelList();            const target = randomSelection(this.modelList.models[modelId]);            loadlive2d("live2d", `${this.cdnPath}model/${target}/index.json`);        } else {            loadlive2d("live2d", `${this.apiPath}get/?id=${modelId}-${modelTexturesId}`);            console.log(`Live2D 模型 ${modelId}-${modelTexturesId} 加载完成`);        }    }    async loadRandModel() {        const modelId = localStorage.getItem("modelId"),            modelTexturesId = localStorage.getItem("modelTexturesId");        if (this.useCDN) {            if (!this.modelList) await this.loadModelList();            const target = randomSelection(this.modelList.models[modelId]);            loadlive2d("live2d", `${this.cdnPath}model/${target}/index.json`);            showMessage("我的新衣服好看嘛？", 4000, 10);        } else {            // 可选 "rand"(随机), "switch"(顺序)            fetch(`${this.apiPath}rand_textures/?id=${modelId}-${modelTexturesId}`)                .then(response => response.json())                .then(result => {                    if (result.textures.id === 1 && (modelTexturesId === 1 || modelTexturesId === 0)) showMessage("我还没有其他衣服呢！", 4000, 10);                    else this.loadModel(modelId, result.textures.id, "我的新衣服好看嘛？");                });        }    }    async loadOtherModel() {        let modelId = localStorage.getItem("modelId");        if (this.useCDN) {            if (!this.modelList) await this.loadModelList();            const index = (++modelId >= this.modelList.models.length) ? 0 : modelId;            this.loadModel(index, 0, this.modelList.messages[index]);        } else {            fetch(`${this.apiPath}switch/?id=${modelId}`)                .then(response => response.json())                .then(result => {                    this.loadModel(result.model.id, 0, result.model.message);                });        }    }}export default Model;]]></content>
       
     </entry>
     
@@ -230,10 +230,10 @@
     
     <entry>
       <title></title>
-      <link href="/live2d-widget/src/model.js"/>
-      <url>/live2d-widget/src/model.js</url>
+      <link href="/live2d-widget/src/utils.js"/>
+      <url>/live2d-widget/src/utils.js</url>
       
-        <content type="html"><![CDATA[import showMessage from "./message.js";import randomSelection from "./utils.js";class Model {    constructor(config) {        let { apiPath, cdnPath } = config;        let useCDN = false;        if (typeof cdnPath === "string") {            useCDN = true;            if (!cdnPath.endsWith("/")) cdnPath += "/";        } else if (typeof apiPath === "string") {            if (!apiPath.endsWith("/")) apiPath += "/";        } else {            throw "Invalid initWidget argument!";        }        this.useCDN = useCDN;        this.apiPath = apiPath;        this.cdnPath = cdnPath;    }    async loadModelList() {        const response = await fetch(`${this.cdnPath}model_list.json`);        this.modelList = await response.json();    }    async loadModel(modelId, modelTexturesId, message) {        localStorage.setItem("modelId", modelId);        localStorage.setItem("modelTexturesId", modelTexturesId);        showMessage(message, 4000, 10);        if (this.useCDN) {            if (!this.modelList) await this.loadModelList();            const target = randomSelection(this.modelList.models[modelId]);            loadlive2d("live2d", `${this.cdnPath}model/${target}/index.json`);        } else {            loadlive2d("live2d", `${this.apiPath}get/?id=${modelId}-${modelTexturesId}`);            console.log(`Live2D 模型 ${modelId}-${modelTexturesId} 加载完成`);        }    }    async loadRandModel() {        const modelId = localStorage.getItem("modelId"),            modelTexturesId = localStorage.getItem("modelTexturesId");        if (this.useCDN) {            if (!this.modelList) await this.loadModelList();            const target = randomSelection(this.modelList.models[modelId]);            loadlive2d("live2d", `${this.cdnPath}model/${target}/index.json`);            showMessage("我的新衣服好看嘛？", 4000, 10);        } else {            // 可选 "rand"(随机), "switch"(顺序)            fetch(`${this.apiPath}rand_textures/?id=${modelId}-${modelTexturesId}`)                .then(response => response.json())                .then(result => {                    if (result.textures.id === 1 && (modelTexturesId === 1 || modelTexturesId === 0)) showMessage("我还没有其他衣服呢！", 4000, 10);                    else this.loadModel(modelId, result.textures.id, "我的新衣服好看嘛？");                });        }    }    async loadOtherModel() {        let modelId = localStorage.getItem("modelId");        if (this.useCDN) {            if (!this.modelList) await this.loadModelList();            const index = (++modelId >= this.modelList.models.length) ? 0 : modelId;            this.loadModel(index, 0, this.modelList.messages[index]);        } else {            fetch(`${this.apiPath}switch/?id=${modelId}`)                .then(response => response.json())                .then(result => {                    this.loadModel(result.model.id, 0, result.model.message);                });        }    }}export default Model;]]></content>
+        <content type="html"><![CDATA[function randomSelection(obj) {    return Array.isArray(obj) ? obj[Math.floor(Math.random() * obj.length)] : obj;}export default randomSelection;]]></content>
       
     </entry>
     
@@ -241,10 +241,10 @@
     
     <entry>
       <title></title>
-      <link href="/live2d-widget/src/utils.js"/>
-      <url>/live2d-widget/src/utils.js</url>
+      <link href="/live2d-widget/src/waifu-tips.js"/>
+      <url>/live2d-widget/src/waifu-tips.js</url>
       
-        <content type="html"><![CDATA[function randomSelection(obj) {    return Array.isArray(obj) ? obj[Math.floor(Math.random() * obj.length)] : obj;}export default randomSelection;]]></content>
+        <content type="html"><![CDATA[import initWidget from "./index.js";window.initWidget = initWidget;]]></content>
       
     </entry>
     
