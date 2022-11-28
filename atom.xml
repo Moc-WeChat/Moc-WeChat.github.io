@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-11-28T11:49:58.216Z</updated>
+  <updated>2022-11-28T11:57:28.143Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://example.com/posts/3b20e20d.html"/>
     <id>http://example.com/posts/3b20e20d.html</id>
     <published>2022-11-28T11:23:59.000Z</published>
-    <updated>2022-11-28T11:49:58.216Z</updated>
+    <updated>2022-11-28T11:57:28.143Z</updated>
     
     <content type="html"><![CDATA[<h1 id="1-表（或数据库）操作语句"><a href="#1-表（或数据库）操作语句" class="headerlink" title="1.表（或数据库）操作语句"></a><strong>1.表（或数据库）操作语句</strong></h1><h2 id="1-1-查询表（或数据库）"><a href="#1-1-查询表（或数据库）" class="headerlink" title="1.1.查询表（或数据库）"></a>1.1.查询表（或数据库）</h2><ol><li><strong>获取所有可用的数据库：show databases；</strong></li><li><strong>选择数据库：use 数据库名字</strong></li><li><strong>用来显示数据库服务器的状态信息：show status；</strong></li><li><strong>显示当前数据库的所有可用的表：show tables；</strong></li><li><strong>获取表中所有列的信息：desc tableName;</strong></li></ol><h2 id="1-2-新建表（或）数据库"><a href="#1-2-新建表（或）数据库" class="headerlink" title="1.2.新建表（或）数据库"></a>1.2.新建表（或）数据库</h2><ol><li><p><strong>新建数据库： create database 数据库名字；</strong></p></li><li><p><strong>创建表可用使用create table语句：</strong></p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> TABLENAME(</span><br><span class="line">  id <span class="type">INT</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT,</span><br><span class="line">  name <span class="type">VARCHAR</span>(<span class="number">50</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  age <span class="type">INT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="number">18</span>,</span><br><span class="line">  <span class="keyword">PRIMARY</span> KEY(id)</span><br><span class="line">);</span><br></pre></td></tr></table></figure></li></ol>]]></content>
     
