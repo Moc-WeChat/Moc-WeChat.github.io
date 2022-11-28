@@ -51,13 +51,6 @@ svg.icon {
     color: #f7c768;
 }
 
-/* bilibli番剧插件 */
-#article-container .bangumi-tab.bangumi-active {
-    background: var(--anzhiyu-theme);
-    color: var(--anzhiyu-ahoverbg);
-    border-radius: 10px;
-}
-
 a.bangumi-tab:hover {
     text-decoration: none !important;
 }
@@ -193,7 +186,7 @@ div#category {
 
 ::-webkit-scrollbar {
     width: 10px;
-    height: 10px;
+    height: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
