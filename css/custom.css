@@ -20,6 +20,17 @@ h1#site-title {
     font-size: 3em !important;
 }
 
+#aside-content .card-info #card-info-btn {
+    padding: 20px 12px;
+    background: var(--anzhiyu-theme);
+    border-radius: 12px;
+    color: var(--anzhiyu-white);
+    display: flex;
+    align-items: center;
+    z-index: 1;
+    transition: all .3s ease 0s;
+}
+
 a.article-title,
 a.blog-slider__title,
 a.categoryBar-list-link,
