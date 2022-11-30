@@ -407,7 +407,7 @@ button:not(:disabled) {
 
 /* 侧边栏个人信息卡片动态渐变色 */
 #aside-content>.card-widget.card-info {
-    background-image: url(https://source.fomal.cc/img/樱花.png);
+    background-image: url(https://pic.imgdb.cn/item/63872dbc16f2c2beb1714ad1.jpg);
     background-repeat: no-repeat;
     background-attachment: inherit;
     background-size: 100%;
@@ -415,7 +415,7 @@ button:not(:disabled) {
 
 /* 黑夜模式适配 */
 [data-theme="dark"] #aside-content>.card-widget.card-info {
-    background: #191919ee;
+    background-image: url(https://pic.imgdb.cn/item/63872f2016f2c2beb1739d0c.png) !important;
 }
 
 /* 个人信息Follow me按钮 */
