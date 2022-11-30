@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://example.com/posts/7b8ad929.html</loc>
+    
+    <lastmod>2022-11-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://example.com/posts/3b20e20d.html</loc>
     
     <lastmod>2022-11-30</lastmod>
@@ -29,7 +38,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/link/index.html</loc>
+    <loc>http://example.com/categories/index.html</loc>
     
     <lastmod>2022-11-28</lastmod>
     
@@ -38,7 +47,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/categories/index.html</loc>
+    <loc>http://example.com/link/index.html</loc>
     
     <lastmod>2022-11-28</lastmod>
     
@@ -74,7 +83,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/live2d-widget/demo/demo.html</loc>
+    <loc>http://example.com/live2d-widget/waifu-tips.json</loc>
     
     <lastmod>2022-11-12</lastmod>
     
@@ -83,7 +92,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/live2d-widget/waifu-tips.json</loc>
+    <loc>http://example.com/live2d-widget/demo/demo.html</loc>
     
     <lastmod>2022-11-12</lastmod>
     
@@ -111,6 +120,13 @@
   
   <url>
     <loc>http://example.com/tags/Mysql/</loc>
+    <lastmod>2022-11-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/Java/</loc>
     <lastmod>2022-11-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
